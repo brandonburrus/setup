@@ -94,4 +94,10 @@ if __name__ == '__main__':
     
     log.info('install nvim plugins...')
     if not args.dry_run:
+        # https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+        # os.system('go install golang.org/x/tools/gopls@latest')
+        # os.system('go install github.com/bufbuild/buf-language-server/cmd/bufls@latest')
+        # os.system('pip install python-lsp-server')
+        # os.system('npm install -g typescript typescript-language-server sql-language-server bash-language-server vscode-langservers-extracted dockerfile-language-server-nodejs emmet-ls graphql-language-service-cli')
+        os.system('curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim')
         os.system('nvim +PlugInstall +qall')

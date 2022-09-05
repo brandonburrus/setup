@@ -22,8 +22,8 @@ else
   let s:low_color = 1
 endif
 
-let s:background_color = "241e2c"
-let s:termBlack = "Grey"
+let s:background_color = "#201d26"
+let s:termBlack = "Black"
 let s:overrides = {}
 
 if &t_Co == 88
@@ -281,8 +281,10 @@ call s:X("Normal","e8e8d3",s:background_color,"","Black","")
 call s:X("SignColumn","",s:background_color,"","Black","")
 call s:X("CursorLine","",s:background_color,"","",s:termBlack)
 call s:X("CursorColumn","","1c1c1c","","",s:termBlack)
-call s:X("Pmenu","ffffff","606060","","White",s:termBlack)
-call s:X("PmenuSel","101010","eeeeee","",s:termBlack,"White")
+call s:X("Pmenu","ffffff","1d1924","","White",s:termBlack)
+call s:X("PmenuSbar","ffffff","1d1924","","White",s:termBlack)
+call s:X("PmenuSel","ffffff","18151e","","White",s:termBlack)
+call s:X("PmenuThumb","ffffff","1d1924","","White",s:termBlack)
 call s:X("Visual","","003562","","",s:termBlack)
 call s:X("Search","4398C9","003562","underline","Magenta","")
 call s:X("MatchParen","","","underline","Magenta","")
@@ -307,7 +309,7 @@ call s:X("Identifier","82cb4d","","","LightCyan","")
 call s:X("Structure","8fbfdc","","","LightCyan","")
 call s:X("Function","02a7ff","","","Yellow","")
 call s:X("Type","49c0b6","","","Yellow","")
-" call s:X("NonText","606060",s:background_color,"",s:termBlack,"")
+call s:X("NonText", s:background_color, s:background_color,"",s:termBlack,"")
 call s:X("SpecialKey","444444","1c1c1c","",s:termBlack,"")
 call s:X("Directory","dad085","","","Yellow","")
 call s:X("ErrorMsg","","902020","","","DarkRed")
@@ -316,7 +318,7 @@ call s:X("Regexp","364ded","","","Purple","")
 call s:X("CocHighlightText", "", "032756", "", "Blue", "")
 call s:X("EndOfBuffer", s:background_color, s:background_color, "", "", "")
 
-hi NonText guifg=bg
+hi! NonText guifg=bg ctermfg=black ctermbg=black
 
 hi! link SignColumn LineNr
 
