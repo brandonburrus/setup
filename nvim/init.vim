@@ -145,7 +145,7 @@ nnoremap <silent> <leader>re <Plug>(coc-rename)
 nnoremap <silent> <leader>rf :NERDTreeFind<CR>
 nnoremap <silent> <leader>rl :so ~/.config/nvim/init.vim<CR>
 nnoremap <silent> <leader>rn :set relativenumber<CR>
-nnoremap <silent> <leader>s  :Telescope grep_string<CR>
+nnoremap <silent> <leader>s  :Telescope live_grep<CR>
 nnoremap <silent> <leader>ut :UndotreeToggle<CR>
 nnoremap <silent> <leader>w  :BD<CR>
 nnoremap <silent> <leader>/ :Commentary<CR>
