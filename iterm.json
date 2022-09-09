@@ -18,7 +18,7 @@
     "Blue Component" : 0.73333334922790527,
     "Red Component" : 0.73333334922790527
   },
-  "Use Custom Window Title" : false,
+  "Use Custom Window Title" : true,
   "Right Option Key Sends" : 0,
   "Show Status Bar" : false,
   "Character Encoding" : 4,
@@ -148,6 +148,7 @@
       "auto-rainbow style" : 0
     }
   },
+  "Prevent Opening in a Tab" : false,
   "Flashing Bell" : false,
   "BM Growl" : true,
   "Right Option Key Changeable" : true,
@@ -160,7 +161,7 @@
   },
   "Icon" : 0,
   "Use Non-ASCII Font" : false,
-  "Use Custom Tab Title" : false,
+  "Use Custom Tab Title" : true,
   "Shortcut" : "",
   "Background Image Location" : "",
   "Bold Color" : {
@@ -168,11 +169,11 @@
     "Blue Component" : 1,
     "Red Component" : 1
   },
-  "Custom Window Title" : "-",
+  "Custom Window Title" : " ",
   "Unlimited Scrollback" : false,
   "Allow Title Setting" : false,
   "Custom Command" : "No",
-  "Title Components" : 1,
+  "Title Components" : 2,
   "Keyboard Map" : {
     "0xf700-0x260000" : {
       "Action" : 10,
@@ -385,7 +386,7 @@
     "Alpha Component" : 1,
     "Green Component" : 0.32380163288999597
   },
-  "Name" : " ",
+  "Name" : "Brandon",
   "Blinking Cursor" : false,
   "Guid" : "02C1B002-29C8-4667-9058-3F46BA0720EF",
   "Ansi 8 Color" : {
@@ -437,14 +438,14 @@
   },
   "Transparency" : 0,
   "Background Color" : {
-    "Red Component" : 0.14117647058823529,
+    "Red Component" : 0.12549019607843137,
     "Color Space" : "sRGB",
-    "Blue Component" : 0.17254901960784313,
+    "Blue Component" : 0.14901960784313725,
     "Alpha Component" : 1,
-    "Green Component" : 0.11764705882352941
+    "Green Component" : 0.11372549019607843
   },
   "Screen" : 0,
-  "Custom Tab Title" : "-",
+  "Custom Tab Title" : " ",
   "Initial Use Transparency" : false,
   "Bound Hosts" : [
 
