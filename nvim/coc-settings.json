@@ -13,7 +13,8 @@
     "javascript",
     "javascriptreact",
     "typescript",
-    "typescriptreact"
+    "typescriptreact",
+    "dart"
   ],
 
   "python.venvPath": "/Users/brandon/.local/share/virtualenvs",
@@ -44,6 +45,10 @@
 
   "typescript.suggest.autoImports": true,
   "typescript.suggest.enabled": true,
+
+  "flutter.lsp.debug": true,
+  "flutter.lsp.initialization.closingLabels": true,
+  "dart.lineLength": 100,
 
   "cSpell.userWords": [
     "Algolia",

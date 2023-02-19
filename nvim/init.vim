@@ -122,8 +122,6 @@ nnoremap <silent> <leader>co :Telescope git_commits<CR>
 nnoremap <silent> <leader>cp :SClose<CR>
 nnoremap <silent> <leader>cr :CocRestart<CR>
 nnoremap <silent> <leader>e :call ToggleNERDTree()<CR>
-nnoremap <silent> <leader>ff <Plug>(coc-codeaction-selected)
-nnoremap <silent> <leader>ff <Plug>(coc-codeaction-selected)
 nnoremap <silent> <leader>qf <Plug>(coc-fix-current)
 nnoremap <silent> <leader>cl <Plug>(coc-codelens-action)
 nnoremap <silent> <leader>fl :Telescope find_files<CR>
@@ -148,10 +146,12 @@ nnoremap <silent> <leader>rn :set relativenumber<CR>
 nnoremap <silent> <leader>s  :Telescope live_grep<CR>
 nnoremap <silent> <leader>ut :UndotreeToggle<CR>
 nnoremap <silent> <leader>w  :BD<CR>
-nnoremap <silent> <leader>/ :Commentary<CR>
+noremap <silent> <leader>/ :Commentary<CR>
 nnoremap <silent> <leader>, :bp<CR>
 nnoremap <silent> <leader>. :bn<CR>
 nnoremap <silent> <C-b> :Toggle<CR>
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
 
 nnoremap = +
 nnoremap + =
@@ -185,6 +185,7 @@ inoremap <silent> <expr><CR> coc#pum#visible() ? coc#pum#confirm()
   \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 nnoremap <silent> K :call ShowDocumentation()<CR>
+nnoremap <silent> <leader>' :call SynGroup()<CR>
 
 function! ShowDocumentation()
   if CocAction('hasProvider', 'hover')
@@ -193,6 +194,11 @@ function! ShowDocumentation()
     call feedkeys('K', 'in')
   endif
 endfunction
+
+function! SynGroup()
+    let l:s = synID(line('.'), col('.'), 1)
+    echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
+endfun
 
 xmap <silent> if <Plug>(coc-funcobj-i)
 omap <silent> if <Plug>(coc-funcobj-i)
@@ -274,22 +280,21 @@ Plug 'tpope/vim-fugitive'                                      " Git integration
 Plug 'tpope/vim-obsession'                                     " Auto session management
 Plug 'tpope/vim-rhubarb'                                       " GitHub integration for fugitive
 
-Plug 'neovim/nvim-lspconfig'                                   " Enable supported LSPs
 Plug 'vim-scripts/loremipsum'                                  " Generate lorem ipsum text
 Plug 'lewis6991/gitsigns.nvim'                                 " Add git signs to side gutter
 
 Plug 'preservim/nerdtree'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
 
 Plug 'nvim-lua/plenary.nvim'                                   " Required dependency for other plugins
 Plug 'kyazdani42/nvim-web-devicons'                            " Add icons supported by other plugins
-Plug 'kyazdani42/nvim-tree.lua'                                " File explorer
+" Plug 'kyazdani42/nvim-tree.lua'                                " File explorer
 Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }              " Display the currently open files at the top
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }       " Quickly move and file files
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}    " Enable smart syntax highlighting
 Plug 'neoclide/coc.nvim', {'branch': 'release'}                " Smart completion similar to Intellisense
-Plug 'puremourning/vimspector'                                 " Debugger tool
+" Plug 'puremourning/vimspector'                                 " Debugger tool
  
 call plug#end()
 
@@ -480,6 +485,7 @@ let g:coc_global_extensions = [
       \ "coc-docker",
       \ "coc-docthis",
       \ "coc-emmet",
+      \ "coc-flutter",
       \ "coc-go",
       \ "coc-html",
       \ "coc-jest",
@@ -493,7 +499,6 @@ let g:coc_global_extensions = [
       \ "coc-tailwindcss",
       \ "coc-toml",
       \ "coc-tsserver",
-      \ "coc-vimlsp",
       \ "coc-yaml",
       \ "coc-yank"
       \ ]
@@ -624,30 +629,13 @@ lua <<EOF
     }
   }
 
-  require'nvim-treesitter.configs'.setup{
-    sync_install = false,
-    auto_install = true,
-    highlight = {
-      enable = true,
-    }
-  }
-
-  local lsp = require'lspconfig'
-
-  lsp.bufls.setup{}
-  lsp.cssls.setup{}
-  lsp.dockerls.setup{}
-  lsp.emmet_ls.setup{}
-  lsp.eslint.setup{}
-  lsp.gopls.setup{}
-  lsp.graphql.setup{}
-  lsp.html.setup{}
-  lsp.jsonls.setup{}
-  lsp.pylsp.setup{}
-  lsp.rust_analyzer.setup{}
-  lsp.sqlls.setup{}
-  lsp.terraformls.setup{}
-  lsp.tflint.setup{}
-  lsp.tsserver.setup{}
+  -- require'nvim-treesitter.configs'.setup{
+    -- ensure_installed = {"go", "python", "typescript", "tsx"},
+    -- -- sync_install = false,
+    -- auto_install = true,
+    -- highlight = {
+      -- enable = true,
+    -- }
+  -- }
 
 EOF

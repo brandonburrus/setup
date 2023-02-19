@@ -673,6 +673,13 @@ hi link cppStructure Keyword
 hi link cOperator Keyword
 hi link cStorageClass Keyword
 
+" Dart
+hi link dartTypedef Keyword
+hi link dartOperator Normal
+hi link dartStorageClass Keyword
+hi link dartInterpolation Identifier
+hi link dartLibrary Keyword
+
 delf s:X
 delf s:remove_italic_attr
 delf s:prefix_highlight_value_with

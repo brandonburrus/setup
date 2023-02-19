@@ -102,6 +102,7 @@ cask 'slack'
 cask 'spotify'
 cask 'zoom'
 
+mas 'OneNote', id: 784801555
 mas 'Giphy Capture', id: 668208984
 mas 'Spark', id: 1176895641
 mas 'RESP', id: 1475905948
