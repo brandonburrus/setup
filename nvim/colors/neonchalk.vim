@@ -679,6 +679,12 @@ hi link dartOperator Normal
 hi link dartStorageClass Keyword
 hi link dartInterpolation Identifier
 hi link dartLibrary Keyword
+hi! link FlutterClosingLabel PreProc
+
+hi! link CocInlayHint PreProc
+hi! link CocInlayHintType PreProc
+hi! link CocInlayHintParameter PreProc
+
 
 delf s:X
 delf s:remove_italic_attr

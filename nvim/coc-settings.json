@@ -1,4 +1,6 @@
 {
+  "inlayHint.enable": false,
+
   "prettier.requireConfig": true,
 
   "diagnostic.level": "hint",
@@ -13,8 +15,7 @@
     "javascript",
     "javascriptreact",
     "typescript",
-    "typescriptreact",
-    "dart"
+    "typescriptreact"
   ],
 
   "python.venvPath": "/Users/brandon/.local/share/virtualenvs",
@@ -46,9 +47,13 @@
   "typescript.suggest.autoImports": true,
   "typescript.suggest.enabled": true,
 
-  "flutter.lsp.debug": true,
+  "flutter.enabled": true,
+  "flutter.lsp.debug": false,
   "flutter.lsp.initialization.closingLabels": true,
+  "flutter.UIPath": false,
   "dart.lineLength": 100,
+
+  "pyright.inlayHints.enable": false,
 
   "cSpell.userWords": [
     "Algolia",

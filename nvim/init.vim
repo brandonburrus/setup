@@ -135,7 +135,6 @@ nnoremap <silent> <leader>mk :Telescope marks<CR>
 nnoremap <silent> <leader>mp :Telescope keymaps<CR>
 nnoremap <silent> <leader>no :nohls<CR>
 nnoremap <silent> <leader>pc :PlugClean<CR>
-nnoremap <silent> <leader>pi :PlugInstall<CR>
 nnoremap <silent> <leader>pu :PlugUpdate<CR>
 nnoremap <silent> <leader>rN :set relativenumber!<CR>
 nnoremap <silent> <leader>rc :CocAction refactor<CR>
@@ -150,8 +149,9 @@ noremap <silent> <leader>/ :Commentary<CR>
 nnoremap <silent> <leader>, :bp<CR>
 nnoremap <silent> <leader>. :bn<CR>
 nnoremap <silent> <C-b> :Toggle<CR>
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
+nnoremap <silent> <leader>t :CocCommand<CR>
+xnoremap <silent> <leader>a <Plug>(coc-codeaction-selected)
+nnoremap <silent> <leader>a <Plug>(coc-codeaction-selected)
 
 nnoremap = +
 nnoremap + =
@@ -268,12 +268,12 @@ Plug 'kana/vim-textobj-user'                                   " Core plugin for
 Plug 'sgur/vim-textobj-parameter'                              " Parameters as text objs
 
 Plug 'fatih/vim-go'                                            " Better Go development
+Plug 'dart-lang/dart-vim-plugin'                               " Better Dart development
 Plug 'sheerun/vim-polyglot'                                    " Automatically add lang-specific plugins async
 
 Plug 'junegunn/vim-slash'                                      " Better search
 Plug 'haya14busa/incsearch.vim'                                " Better incremental search
 
-Plug 'junegunn/goyo.vim'                                       " Zen mode
 Plug 'mbbill/undotree'                                         " Visual tree for undo history
 Plug 'mhinz/vim-startify'                                      " Better start screen
 Plug 'tpope/vim-fugitive'                                      " Git integration
@@ -289,7 +289,6 @@ Plug 'ryanoasis/vim-devicons'
 
 Plug 'nvim-lua/plenary.nvim'                                   " Required dependency for other plugins
 Plug 'kyazdani42/nvim-web-devicons'                            " Add icons supported by other plugins
-" Plug 'kyazdani42/nvim-tree.lua'                                " File explorer
 Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }              " Display the currently open files at the top
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }       " Quickly move and file files
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}    " Enable smart syntax highlighting
@@ -480,12 +479,10 @@ let g:WebDevIconsUnicodeDecorateFolderNodesDefaultSymbol                = ''
 " CoC
 let g:coc_global_extensions = [
       \ "coc-calc",
-      \ "coc-clangd",
       \ "coc-css",
       \ "coc-docker",
       \ "coc-docthis",
       \ "coc-emmet",
-      \ "coc-flutter",
       \ "coc-go",
       \ "coc-html",
       \ "coc-jest",
@@ -517,6 +514,8 @@ let g:move_key_modifier = 'C'
 " Disable the color-column
 setlocal colorcolumn=
 
+let g:dart_format_on_save = 0
+let g:dart_style_guide = 0
 
 " ==== Neovim Configs ================================================================================= "
 
