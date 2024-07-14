@@ -1,6 +1,5 @@
 #! /usr/bin/python3
 from dataclasses import dataclass
-from importlib.resources import path
 from typing import List
 import argparse
 import logging
@@ -71,7 +70,6 @@ def configure_arg_parser() -> argparse.Namespace:
     cmdline = argparse.ArgumentParser(description='convenience installation script for dotfiles configs')
     cmdline.add_argument('--dry-run', action='store_true', help='run the installation in dry-run mode')
     cmdline.add_argument('--skip-brewfile', action='store_true', help='skip running app installation via brewfile')
-    cmdline.add_argument('--skip-nvim', action='store_true', help='skip install nvim plugins and required pre-requisites')
 
     return cmdline.parse_args()
 
@@ -93,14 +91,3 @@ if __name__ == '__main__':
         log.info('running Brewfile...')
         if not args.dry_run:
             os.system('brew bundle')
-
-    if not args.skip_nvim:
-        log.info('install nvim plugins...')
-        if not args.dry_run:
-            # https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-            # os.system('go install golang.org/x/tools/gopls@latest')
-            # os.system('go install github.com/bufbuild/buf-language-server/cmd/bufls@latest')
-            # os.system('pip install python-lsp-server')
-            # os.system('npm install -g typescript typescript-language-server sql-language-server bash-language-server vscode-langservers-extracted dockerfile-language-server-nodejs emmet-ls graphql-language-service-cli')
-            os.system('curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim')
-            os.system('nvim +PlugInstall +qall')
